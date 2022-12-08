@@ -34,8 +34,6 @@ func main() {
 	defer arquivo.Close()
 
 	arquivo.WriteString(fmt.Sprintf("Dólar: %v", cotacao.Bid))
-
-	fmt.Println(cotacao.Bid)
 }
 
 func tratarErro(err error) {
