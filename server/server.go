@@ -4,6 +4,7 @@ import (
 	"context"
 	"database/sql"
 	"encoding/json"
+	"log"
 	"net/http"
 	"time"
 
@@ -38,11 +39,13 @@ func main() {
 
 		clientRequest, err := http.NewRequestWithContext(ctx, "GET", apiUrl, nil)
 		if err != nil {
+			log.Fatal(err)
 			http.Error(res, err.Error(), http.StatusInternalServerError)
 		}
 
 		clientResponse, err := http.DefaultClient.Do(clientRequest)
 		if err != nil {
+			log.Fatal(err)
 			http.Error(res, err.Error(), http.StatusInternalServerError)
 		}
 
